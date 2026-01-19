@@ -1,0 +1,9 @@
+[submodule "tapi"]
+	path = tapi
+	url = https://github.com/checkra1n/tapi.git
+[submodule "xar"]
+	path = xar
+	url = https://github.com/checkra1n/xar.git
+[submodule "ld64"]
+	path = ld64
+	url = https://github.com/checkra1n/ld64.git
