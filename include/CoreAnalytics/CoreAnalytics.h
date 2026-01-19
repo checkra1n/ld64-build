@@ -1,0 +1,6 @@
+#ifndef _COREANALYTICS_COREANALYTICS_h_
+#define _COREANALYTICS_COREANALYTICS_h_
+
+#define CRSetCrashLogMessage(...)
+
+#endif /* _COREANALYTICS_COREANALYTICS_h_ */
