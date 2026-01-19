@@ -126,7 +126,7 @@ LINUX_XAR_FLAGS                         := --enable-static --disable-shared CC='
 LINUX_LD64_BASE_FLAGS                   := -fblocks
 LINUX_LD64_CC_CXX_FLAGS                 := -Wno-gnu-folding-constant -isystem$(INC) -isystem$(LD64_INC) -iquote$(LD64_SRC) -iquote$(LD64_SRC)/abstraction -iquote$(LD64_SRC)/ld -iquote$(LD64_SRC)/ld/parsers -iquote$(LD64_SRC)/mach_o
 LINUX_LD64_CC_FLAGS                     := $(LINUX_LD64_BASE_FLAGS) $(LINUX_LD64_CC_CXX_FLAGS)
-LINUX_LD64_CXX_FLAGS                    := $(LINUX_LD64_BASE_FLAGS) $(LINUX_LD64_CC_CXX_FLAGS) -isystem$(TAPI)/llvm/include -isystem$(TAPI)/tapi/include -D'strlcat(d,s,n)=strncat(d,s,(n)-1)' -D'strlcpy(d,s,n)=(strncpy(d,s,(n)-1),strlen(s))' -Ddl_info=Dl_info
+LINUX_LD64_CXX_FLAGS                    := $(LINUX_LD64_BASE_FLAGS) $(LINUX_LD64_CC_CXX_FLAGS) -isystem$(TAPI)/llvm/include -isystem$(TAPI)/tapi/include
 LINUX_LD64_LD_FLAGS                     := $(LINUX_LD64_BASE_FLAGS) -ltapi -ltapiCore -lLLVMTextAPI -lLLVMSupport -lLLVMBinaryFormat -lLLVMTargetParser -lxar -lz -lxml2 -lcrypto -luuid -ldl -lBlocksRuntime
 LINUX_LD64_C                            := $(shell find $(LD64_SRC) -not -path '$(LD64_SRC)/other/*' -type f -name '*.c')
 LINUX_LD64_H                            := $(shell find $(LD64_SRC) -not -path '$(LD64_SRC)/other/*' -type f -name '*.h') $(shell find $(LD64_INC) -not -path '$(LD64_SRC)/other/*' -type f -name '*.h') $(shell find $(INC) -not -path '$(LD64_SRC)/other/*' -type f -name '*.h')
