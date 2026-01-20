@@ -28,9 +28,9 @@ jobs:
       - name: 'Compile'
         working-directory: 'ld64'
         env:
-          LLVM_CONFIG: 'llvm-config-19'
-          ARM64_SDK: '${{ github.workspace }}/build/arm64-linux-gnu-dev'
-          X86_64_SDK: '${{ github.workspace }}/build/x86_64-linux-gnu-dev'
+          LLVM_CONFIG: 'llvm-config-18'
+          ARM64_SDK: '${{ github.workspace }}/SDK/build/arm64-linux-gnu-dev'
+          X86_64_SDK: '${{ github.workspace }}/SDK/build/x86_64-linux-gnu-dev'
         run: 'make -j'
       - name: 'Archive'
         uses: 'actions/upload-artifact@v4'
