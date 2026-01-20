@@ -1,11 +1,7 @@
-name: CI
+name: Release
 
 on:
-  # Trigger on all pushes and pull requests
-  push:
-  pull_request:
-
-  # Allows you to run this workflow manually from the Actions tab
+  # Manual trigger from the Actions tab
   workflow_dispatch:
 
 jobs:
