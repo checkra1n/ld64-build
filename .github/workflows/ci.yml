@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  # Trigger on all pushes and pull requests
+  push:
+  pull_request:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: 'ubuntu-24.04'
+    steps:
+      - name: 'Checkout SDK'
+        uses: 'actions/checkout@v6'
+        with:
+          repository: 'checkra1n/SDK'
+          path: 'SDK'
+      - name: 'Build SDK'
+        working-directory: 'SDK'
+        run: './make.sh all-linux-gnu-dev all'
+      - name: 'Checkout repository'
+        uses: 'actions/checkout@v6'
+        with:
+          submodules: true
+          path: 'ld64'
+      - name: 'Compile'
+        working-directory: 'ld64'
+        env:
+          LLVM_CONFIG: 'llvm-config-19'
+          ARM64_SDK: '${{ github.workspace }}/build/arm64-linux-gnu-dev'
+          X86_64_SDK: '${{ github.workspace }}/build/x86_64-linux-gnu-dev'
+        run: 'make -j'
+      - name: 'Archive'
+        working-directory: 'ld64'
+        uses: 'actions/upload-artifact@v4'
+        with:
+          path: |
+            'build/*/ld64'
+            'build/*/*.deb'
