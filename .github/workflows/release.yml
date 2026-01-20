@@ -32,5 +32,5 @@ jobs:
         uses: 'actions/upload-artifact@v4'
         with:
           path: |
-            'ld64/build/*/ld64'
-            'ld64/build/*/*.deb'
+            ld64/build/*/ld64
+            ld64/build/*/*.deb
