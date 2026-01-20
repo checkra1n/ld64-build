@@ -31,7 +31,7 @@ jobs:
           LLVM_CONFIG: 'llvm-config-18'
           ARM64_SDK: '${{ github.workspace }}/SDK/build/arm64-linux-gnu-dev'
           X86_64_SDK: '${{ github.workspace }}/SDK/build/x86_64-linux-gnu-dev'
-        run: 'make -j'
+        run: 'make -j8'
       - name: 'Archive'
         uses: 'actions/upload-artifact@v4'
         with:
